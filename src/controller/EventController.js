@@ -1,4 +1,8 @@
-import { prismaClient } from "../database/PrismaClient.js"
+// import { prismaClient } from "../database/PrismaClient.js"
+
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 export class EventController {
     async criarEvento(request, response) {
@@ -12,10 +16,12 @@ export class EventController {
                     categoria: { connect: { id: categoriaId } },
                     local: { connect: { id: localId } }
                 }
+
             });
+
             response.status(201).json(novoEvento);
         } catch (error) {
-            response.status(500).json({ erro: "Não foi possível criar o evento." });
+            response.status(500).json({ erro: "Não foi possível criar o evento."});
         }
     }
 

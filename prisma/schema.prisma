@@ -16,13 +16,15 @@ datasource db {
 model Evento {
   id        Int       @id @default(autoincrement())
   nome      String
-  data      DateTime
+  data      DateTime 
   descricao String?
   categoria Categoria @relation(fields: [categoriaId], references: [id])
-  local     Local     @relation(fields: [localId], references: [id])
-
   categoriaId Int
+  local     Local     @relation(fields: [localId], references: [id])
   localId     Int
+
+  
+  
 
   @@map("evento")
 }
@@ -44,4 +46,14 @@ model Local {
   eventos Evento[]
 
   @@map("local")
+}
+
+model Usuario {
+  id        Int      @id @default(autoincrement())
+  nome      String
+  email     String   @unique
+  senha     String
+  role      String   @default("participante")
+
+  @@map("usuario")
 }
