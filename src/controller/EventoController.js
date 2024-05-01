@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export class EventController {
+export class EventoController {
     async criarEvento(request, response) {
         try {
             const { nome, data, descricao, categoriaId, localId } = request.body;

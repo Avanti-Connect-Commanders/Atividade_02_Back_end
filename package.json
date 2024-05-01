@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-mock-extended": "^2.0.4",
     "nodemon": "^3.1.0",
     "prisma": "^5.13.0"
   },

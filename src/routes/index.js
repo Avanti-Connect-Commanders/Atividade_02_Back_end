@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { EventController } from "../controller/EventController.js";
+import { EventoController } from "../controller/EventoController.js";
 import { CategoriaController } from "../controller/CategoriaController.js";
 import { LocalController } from "../controller/LocalController.js";
 import { AuthController } from "../controller/AuthController.js";
@@ -9,21 +9,19 @@ import {autenticarToken} from "../middlewares/autenticacaoMiddleware.js"
 
 
 const routes = Router();
-const eventController = new EventController();
+const eventoController = new EventoController();
 const categoriaController = new CategoriaController();
 const localController = new LocalController();
 const authController = new AuthController();
 
 //Evento
-routes.post("/event",autenticarToken, eventController.criarEvento)
-routes.get("/event/listar", eventController.listarEventos)
-routes.put("/event/:id",autenticarToken, eventController.atualizarEvento)
-routes.delete("/event/:id",autenticarToken, eventController.excluirEvento)
+routes.post("/evento",autenticarToken, eventoController.criarEvento)
+routes.get("/evento/listar", eventoController.listarEventos)
+routes.put("/evento/:id",autenticarToken, eventoController.atualizarEvento)
+routes.delete("/evento/:id",autenticarToken, eventoController.excluirEvento)
 
 //Pesquisar Evento
-routes.post("/event/pesquisar", eventController.pesquisarEventos)
-
-
+routes.post("/evento/pesquisar", eventoController.pesquisarEventos)
 
 //Categoria
 routes.post("/categorias", categoriaController.criarCategoria)
